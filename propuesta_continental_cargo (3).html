@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Continental Cargo - Transformación Operativa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #020b14;
+        color: #f1f5f9;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      /* Colores Corporativos Continental */
+      .text-brand-blue {
+        color: #38bdf8;
+      }
+      .bg-brand-blue {
+        background-color: #38bdf8;
+      }
+      .text-brand-navy {
+        color: #0f172a;
+      }
+      .bg-brand-dark {
+        background-color: #020b14;
+      }
+      .bg-brand-panel {
+        background-color: #0f172a;
+      }
+      .border-brand {
+        border-color: rgba(56, 189, 248, 0.2);
+      }
+
+      /* Gradientes */
+      .hero-gradient {
+        background: radial-gradient(
+          circle at top right,
+          rgba(56, 189, 248, 0.15) 0%,
+          rgba(2, 11, 20, 1) 50%
+        );
+      }
+
+      .card-gradient {
+        background: linear-gradient(145deg, #0f172a 0%, #020b14 100%);
+      }
+
+      /* Animaciones */
+      .fade-up {
+        animation: fadeUp 0.8s ease-out forwards;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .delay-100 {
+        animation-delay: 100ms;
+      }
+      .delay-200 {
+        animation-delay: 200ms;
+      }
+      .delay-300 {
+        animation-delay: 300ms;
+      }
+
+      /* Estilos de imagen */
+      .mockup-shadow {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .mobile-screen {
+        border-radius: 1.5rem;
+        border: 4px solid #1e293b;
+      }
+    </style>
+  </head>
+  <body class="antialiased selection:bg-brand-blue selection:text-white">
+    <nav
+      class="fixed w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <div class="flex-shrink-0 flex items-center gap-3">
+            <img
+              src="logo.png"
+              alt="Continental Cargo Logo"
+              class="h-12 bg-white rounded-lg"
+            />
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#rrhh"
+              class="text-gray-300 hover:text-brand-blue transition font-medium"
+              >Gestión RRHH</a
+            >
+            <a
+              href="#logistica"
+              class="text-gray-300 hover:text-brand-blue transition font-medium"
+              >Inspección Logística</a
+            >
+            <a
+              href="#arquitectura"
+              class="text-gray-300 hover:text-brand-blue transition font-medium"
+              >Tecnología</a
+            >
+            <a
+              href="#inversion"
+              class="bg-brand-blue text-brand-navy px-5 py-2 rounded-full font-bold hover:bg-white transition"
+              >Ver Inversión</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-gradient"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-4xl mx-auto fade-up">
+          <p
+            class="text-brand-blue font-semibold tracking-widest uppercase mb-4"
+          >
+            Propuesta Comercial Exclusiva
+          </p>
+          <h1
+            class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight"
+          >
+            El control total de su operación logística y capital humano.
+          </h1>
+          <p class="text-xl text-gray-400 mb-8">
+            Preparado para
+            <strong class="text-white">Carlos Saicedo, CEO</strong>. Presentamos
+            la suite tecnológica definitiva para Continental Cargo:
+            Automatización de asistencia y protección de carga con evidencia
+            digital.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="#rrhh"
+              class="bg-brand-blue text-brand-navy px-8 py-3 rounded-full font-bold text-lg hover:bg-white transition shadow-[0_0_20px_rgba(56,189,248,0.4)]"
+            >
+              Módulo de Personal
+            </a>
+            <a
+              href="#logistica"
+              class="border border-brand text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-800 transition"
+            >
+              Módulo de Almacén
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="rrhh"
+      class="py-24 bg-brand-panel relative border-t border-brand"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-up">
+          <h2
+            class="text-brand-blue text-sm font-bold tracking-widest uppercase mb-2"
+          >
+            Suite 01
+          </h2>
+          <h3 class="text-3xl md:text-5xl font-bold text-white mb-4">
+            TimeTracker Pro
+          </h3>
+          <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+            Automatización de asistencia, cálculo de nómina y gestión de turnos
+            sin fricción.
+          </p>
+        </div>
+
+        <!-- Dashboard Admin -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+          <div class="order-2 lg:order-1 fade-up delay-100">
+            <h4 class="text-2xl font-bold text-white mb-4">
+              Panel de Control: El Pulso de la Operación
+            </h4>
+            <p class="text-gray-400 mb-6">
+              El Dashboard central otorga a gerencia una visión financiera y
+              operativa en tiempo real.
+            </p>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-chart-line text-brand-blue mt-1 mr-3"></i>
+                <strong>Costo de Nómina en Vivo:</strong> Visualice el costo
+                actual proyectado del día ($) basado en las horas activas.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-users text-brand-blue mt-1 mr-3"></i>
+                <strong>Personal Activo:</strong> Sepa exactamente cuántos
+                empleados están en turno y cuántos llegaron tarde.
+              </li>
+            </ul>
+          </div>
+          <div class="order-1 lg:order-2 fade-up">
+            <img
+              src="dashboard1.png"
+              alt="Dashboard General Admin"
+              class="rounded-xl mockup-shadow w-full border border-gray-700"
+            />
+          </div>
+        </div>
+
+        <!-- Kiosko Móvil -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+          <div class="fade-up">
+            <div class="grid grid-cols-3 gap-4">
+              <img
+                src="keyboardApp.png"
+                alt="Teclado ID y PIN"
+                class="rounded-xl mockup-shadow w-full border border-gray-700"
+              />
+              <img
+                src="capture.png"
+                alt="Check-in Exitoso"
+                class="rounded-xl mockup-shadow w-full border border-gray-700"
+              />
+              <img
+                src="savedrecord.png"
+                alt="Check-in Exitoso"
+                class="rounded-xl mockup-shadow w-full border border-gray-700"
+              />
+            </div>
+          </div>
+          <div class="fade-up delay-100">
+            <h4 class="text-2xl font-bold text-white mb-4">
+              Kiosko Android en Sitio (Biometría)
+            </h4>
+            <p class="text-gray-400 mb-6">
+              Tablets ubicadas estratégicamente para un marcaje ultra rápido y
+              antifraude.
+            </p>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-camera text-brand-blue mt-1 mr-3"></i>
+                <strong>Cero Fraudes ("Buddy Punching"):</strong> La cámara
+                valida el rostro del empleado de forma automática.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-bolt text-brand-blue mt-1 mr-3"></i>
+                <strong>Flujo de 3 segundos:</strong> PIN, selección y foto. El
+                sistema se reinicia solo para evitar filas.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Planificación (Schedule Admin) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+          <div class="order-2 lg:order-1 fade-up delay-100">
+            <h4 class="text-2xl font-bold text-white mb-4">
+              Planificación de Turnos Inteligente
+            </h4>
+            <p class="text-gray-400 mb-6">
+              Asigne la fuerza laboral correcta al departamento correcto, sin
+              cruces ni errores en hojas de cálculo.
+            </p>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-calendar-alt text-brand-blue mt-1 mr-3"></i>
+                <strong>Calendario Drag & Drop:</strong> Asigne turnos (ej.
+                Logística, Almacén) visualmente a los empleados disponibles.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-eye text-brand-blue mt-1 mr-3"></i>
+                <strong>Transparencia:</strong> Los turnos asignados aquí se
+                reflejan instantáneamente en la app del trabajador.
+              </li>
+            </ul>
+          </div>
+          <div class="order-1 lg:order-2 fade-up">
+            <img
+              src="schedule.png"
+              alt="Planificador de Horarios"
+              class="rounded-xl mockup-shadow w-full border border-gray-700"
+            />
+          </div>
+        </div>
+
+        <!-- Auditoría (Records Admin) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+          <div class="fade-up">
+            <img
+              src="records.png"
+              alt="Auditoría de Asistencia"
+              class="rounded-xl mockup-shadow w-full border border-gray-700"
+            />
+          </div>
+          <div class="fade-up delay-100">
+            <h4 class="text-2xl font-bold text-white mb-4">
+              Auditoría Impecable para Nómina
+            </h4>
+            <p class="text-gray-400 mb-6">
+              El fin de las discrepancias a la hora de pagar. Datos limpios
+              listos para exportar.
+            </p>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-shield-alt text-brand-blue mt-1 mr-3"></i>
+                <strong>Validación Visual:</strong> Cada registro incluye la
+                foto tomada por la tablet para resolver disputas.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-file-csv text-brand-blue mt-1 mr-3"></i>
+                <strong>Exportación CSV:</strong> Filtre por empleado o fecha y
+                descargue el reporte listo para su sistema contable.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Permisos Admin y Usuarios -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+          <div class="order-2 lg:order-1 fade-up delay-100">
+            <h4 class="text-2xl font-bold text-white mb-4">
+              Gestión de Permisos Digital (Fin del Papel)
+            </h4>
+            <p class="text-gray-400 mb-6">
+              Unifique las solicitudes de vacaciones y ausencias médicas en un
+              solo flujo de trabajo.
+            </p>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-check-square text-brand-blue mt-1 mr-3"></i>
+                <strong>Panel Admin:</strong> Apruebe o rechace solicitudes con
+                un clic, viendo la justificación del empleado.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-user-edit text-brand-blue mt-1 mr-3"></i>
+                <strong>Creación de Usuarios:</strong> Gestione la base de datos
+                (CRUD), tarifas por hora y roles de sistema.
+              </li>
+            </ul>
+          </div>
+          <div class="order-1 lg:order-2 fade-up">
+            <div class="grid grid-cols-2 gap-4">
+              <img
+                src="request.png"
+                alt="Centro de Permisos Admin"
+                class="rounded-xl mockup-shadow w-full border border-gray-700"
+              />
+              <img
+                src="users.png"
+                alt="Gestión de Usuarios"
+                class="rounded-xl mockup-shadow w-full border border-gray-700"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Portal Empleado (Autogestión) -->
+        <div
+          class="mt-16 bg-brand-dark p-8 rounded-2xl border border-gray-800 fade-up"
+        >
+          <h4 class="text-2xl font-bold text-white mb-8 text-center">
+            Autogestión Web: Empoderando a su Equipo
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <img
+                src="dashboard user.png"
+                alt="Resumen Empleado"
+                class="rounded-lg mb-4 border border-gray-700"
+              />
+              <h5 class="text-brand-blue font-semibold mb-2">Mi Resumen</h5>
+              <p class="text-sm text-gray-400">
+                Transparencia total. El empleado ve sus horas
+                semanales/mensuales y audita sus propios marcajes con foto.
+              </p>
+            </div>
+            <div>
+              <img
+                src="schedule user.png"
+                alt="Horario Empleado"
+                class="rounded-lg mb-4 border border-gray-700"
+              />
+              <h5 class="text-brand-blue font-semibold mb-2">Mi Agenda</h5>
+              <p class="text-sm text-gray-400">
+                Visualización de sus próximos turnos asignados por gerencia,
+                eliminando confusiones de horarios.
+              </p>
+            </div>
+            <div>
+              <img
+                src="requestuser.png"
+                alt="Permisos Empleado"
+                class="rounded-lg mb-4 border border-gray-700"
+              />
+              <h5 class="text-brand-blue font-semibold mb-2">Mis Permisos</h5>
+              <p class="text-sm text-gray-400">
+                Formulario directo para solicitar tiempo libre y un historial
+                para rastrear si fue aprobado o rechazado.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUITE 2: Logística y Almacén (CORREGIDA) -->
+    <section
+      id="logistica"
+      class="py-24 bg-brand-dark relative border-t border-brand"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-up">
+          <h2
+            class="text-brand-blue text-sm font-bold tracking-widest uppercase mb-2"
+          >
+            Suite 02
+          </h2>
+          <h3 class="text-3xl md:text-5xl font-bold text-white mb-4">
+            Continental Inspect
+          </h3>
+          <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+            Aplicación móvil nativa para el control logístico en bodega, captura
+            de evidencia multimedia y trazabilidad de carga aérea.
+          </p>
+        </div>
+
+        <!-- Bloque 1: Dashboard Cargo y OCR -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+          <div class="fade-up flex justify-center gap-6">
+            <img
+              src="dashboardcargo.jpeg"
+              alt="Dashboard Operador"
+              class="h-[500px] object-cover mobile-screen mockup-shadow"
+            />
+            <img
+              src="cameraOcr.jpeg"
+              alt="Escáner OCR"
+              class="h-[500px] object-cover mobile-screen mockup-shadow"
+            />
+          </div>
+          <div class="fade-up delay-100">
+            <h4 class="text-2xl font-bold text-white mb-4">
+              Panel Operativo & Escáner Inteligente (OCR)
+            </h4>
+            <p class="text-gray-400 mb-6">
+              Los operadores gestionan la carga del día directamente desde su
+              móvil Android. Digitalización instantánea en piso.
+            </p>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-chart-pie text-brand-blue mt-1 mr-3"></i>
+                <strong>Control de Turno:</strong> Contadores de carga nueva,
+                cargada o que requiere atención inmediata.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-expand text-brand-blue mt-1 mr-3"></i>
+                <strong>Escáner OCR:</strong> La cámara lee la placa serial del
+                contenedor (ULD) automáticamente, sin teclear.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bloque 2: Formulario y Evidencia Visual -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+          <div class="order-2 lg:order-1 fade-up delay-100">
+            <h4 class="text-2xl font-bold text-white mb-4">
+              Inspección Digital y Evidencia Multimedia
+            </h4>
+            <p class="text-gray-400 mb-6">
+              Adiós al papel. Proteja a Continental Cargo contra millonarios
+              reclamos por daños en mercancía, documentando el estado de
+              recepción y despacho.
+            </p>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-keyboard text-brand-blue mt-1 mr-3"></i>
+                <strong>Formulario de Carga:</strong> Registro de Guía Aérea
+                (AWB), tipo de conservación (Congelado/Ambiente), peso y cajas.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-camera text-brand-blue mt-1 mr-3"></i>
+                <strong>Fotografías HD:</strong> Captura en la nube de fotos
+                mostrando el estado de la red y precintos.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-video text-brand-blue mt-1 mr-3"></i>
+                <strong>Clips de Video:</strong> Soporte para grabación de video
+                corto (ideal para evidenciar daños estructurales).
+              </li>
+            </ul>
+          </div>
+          <div class="order-1 lg:order-2 fade-up">
+            <div class="flex gap-6 justify-center">
+              <img
+                src="newcargo.jpeg"
+                alt="Formulario de Carga"
+                class="h-[500px] object-cover mobile-screen mockup-shadow"
+              />
+              <img
+                src="video.jpeg"
+                alt="Evidencia en Video"
+                class="h-[500px] object-cover mobile-screen mockup-shadow"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloque 3: Reportes, Detalles y Admin -->
+        <div class="grid grid-cols-3 lg:grid-cols-2 gap-10 items-end">
+          <div class="fade-up flex justify-end gap-6">
+            <!-- Ajustamos el tamaño del PDF que suele ser más largo -->
+            <img
+              src="searchcargo.jpeg"
+              alt="busqueda Avanzada"
+              class="h-[500px] object-cover mobile-screen mockup-shadow"
+            />
+            <img
+              src="pdf.jpeg"
+              alt="Reporte PDF"
+              class="h-[500px] object-contain rounded-xl mockup-shadow border border-gray-700 bg-white"
+            />
+            <img
+              src="adminpanel.jpeg"
+              alt="Panel Admin Exportación"
+              class="h-[500px] object-cover mobile-screen mockup-shadow"
+            />
+          </div>
+          <div class="fade-up delay-100">
+            <h4 class="text-2xl font-bold text-white mb-4">
+              Reportes Automatizados y Exportación Central
+            </h4>
+            <p class="text-gray-400 mb-6">
+              La información fluye de la bodega a la gerencia en segundos, lista
+              para auditoría o para compartir con clientes.
+            </p>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-file-pdf text-brand-blue mt-1 mr-3"></i>
+                <strong>Generación PDF:</strong> El sistema genera un reporte
+                profesional con detalles del ULD, fotos adjuntas y links al
+                video original en la nube.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-download text-brand-blue mt-1 mr-3"></i>
+                <strong>Panel de Administrador:</strong> Filtre inspecciones por
+                fecha y exporte reportes CSV masivos para el ERP de la empresa.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-brand-blue mt-1 mr-3"></i>
+                <strong>Gestión de Carga:</strong> Opciones para ver el detalle
+                completo de la carga y marcarla como "Loaded" (Cargada).
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="bg-brand-panel py-16 border-t border-brand text-center relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"
+      ></div>
+      <div class="max-w-4xl mx-auto px-4 relative z-10">
+        <img
+          src="logo.png"
+          alt="Logo"
+          class="h-32 w-auto mx-auto mb-6 bg-white p-4 rounded-lg shadow-md"
+        />
+        <h2 class="text-3xl font-bold text-white mb-4">
+          ¿Listos para revolucionar la operativa?
+        </h2>
+        <p class="text-gray-400 mb-8">
+          Automatización, seguridad y control logístico en la palma de su mano.
+        </p>
+        <p class="text-brand-blue font-semibold">
+          Atención: Carlos Saicedo, CEO
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Animaciones simples al hacer scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationPlayState = "running";
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".fade-up").forEach((el) => {
+          el.style.animationPlayState = "paused";
+          observer.observe(el);
+        });
+
+        // Smooth scrolling para anclas
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
