@@ -94,6 +94,100 @@
         border-radius: 1.5rem;
         border: 4px solid #1e293b;
       }
+
+      .browser-chrome {
+        background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        border-radius: 0.75rem 0.75rem 0 0;
+        padding: 0.65rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: none;
+      }
+
+      .browser-dot {
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 9999px;
+        background: #475569;
+      }
+
+      .browser-dot:nth-child(1) {
+        background: #ef4444;
+      }
+      .browser-dot:nth-child(2) {
+        background: #eab308;
+      }
+      .browser-dot:nth-child(3) {
+        background: #22c55e;
+      }
+
+      .landing-frame {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 0.75rem;
+      }
+
+      .landing-shot {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: none;
+        border-radius: 0 0 0.75rem 0.75rem;
+        background: #020b14;
+      }
+
+      .landing-shot--hero {
+        aspect-ratio: 16 / 9;
+      }
+
+      .landing-shot--page {
+        aspect-ratio: 4 / 3;
+      }
+
+      @media (min-width: 768px) {
+        .landing-shot--page {
+          aspect-ratio: 16 / 10;
+        }
+      }
+
+      .landing-shot img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+
+      .landing-caption {
+        padding: 0.75rem 1rem 0;
+        font-size: 0.875rem;
+        color: #94a3b8;
+        text-align: center;
+      }
+
+      .landing-caption strong {
+        color: #e2e8f0;
+        font-weight: 600;
+      }
+
+      .pricing-card {
+        background: linear-gradient(160deg, #0f172a 0%, #020b14 100%);
+      }
+
+      .pricing-card--featured {
+        border-color: rgba(56, 189, 248, 0.55);
+        box-shadow: 0 0 40px rgba(56, 189, 248, 0.12);
+      }
+
+      @media (min-width: 1024px) {
+        .pricing-card--featured {
+          transform: translateY(-0.5rem);
+        }
+      }
     </style>
   </head>
   <body class="antialiased selection:bg-brand-blue selection:text-white">
@@ -121,14 +215,14 @@
               >Inspección Logística</a
             >
             <a
-              href="#arquitectura"
+              href="#landing"
               class="text-gray-300 hover:text-brand-blue transition font-medium"
-              >Tecnología</a
+              >Presencia Web</a
             >
             <a
               href="#inversion"
               class="bg-brand-blue text-brand-navy px-5 py-2 rounded-full font-bold hover:bg-white transition"
-              >Ver Inversión</a
+              >Inversión</a
             >
           </div>
         </div>
@@ -143,32 +237,55 @@
           <p
             class="text-brand-blue font-semibold tracking-widest uppercase mb-4"
           >
-            Propuesta Comercial Exclusiva
+            Propuesta Integral · Operación + Marca
           </p>
           <h1
             class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight"
           >
-            El control total de su operación logística y capital humano.
+            Menos fricción operativa. Más confianza ante sus clientes.
           </h1>
-          <p class="text-xl text-gray-400 mb-8">
-            Preparado para
-            <strong class="text-white">Carlos Saicedo, CEO</strong>. Presentamos
-            la suite tecnológica definitiva para Continental Cargo:
-            Automatización de asistencia y protección de carga con evidencia
-            digital.
+          <p class="text-xl text-gray-400 mb-6">
+            Estimado <strong class="text-white">Carlos Saicedo, CEO</strong>:
+            Continental Cargo merece herramientas a la altura de su operación
+            aérea. Esta propuesta une
+            <strong class="text-white"
+              >control de personal, trazabilidad de carga en bodega y una
+              presencia web profesional</strong
+            >
+            que refuerza su posicionamiento en el mercado.
           </p>
+          <p class="text-base text-gray-500 mb-6 max-w-3xl mx-auto">
+            Resultado esperado: reducción de disputas en nómina, evidencia
+            defendible ante reclamos por daños y una imagen corporativa coherente
+            con la calidad de su servicio logístico.
+          </p>
+          <div
+            class="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-5 py-2 mb-8 text-sm text-emerald-200"
+          >
+            <i class="fas fa-gift text-emerald-400"></i>
+            <span
+              ><strong class="text-white">1 semana de prueba gratis</strong> —
+              use el ecosistema completo antes de comprometer su inversión</span
+            >
+          </div>
           <div class="flex flex-col sm:flex-row justify-center gap-4">
             <a
               href="#rrhh"
               class="bg-brand-blue text-brand-navy px-8 py-3 rounded-full font-bold text-lg hover:bg-white transition shadow-[0_0_20px_rgba(56,189,248,0.4)]"
             >
-              Módulo de Personal
+              Ver Suite RRHH
             </a>
             <a
               href="#logistica"
               class="border border-brand text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-800 transition"
             >
-              Módulo de Almacén
+              Ver Inspección de Carga
+            </a>
+            <a
+              href="#landing"
+              class="border border-gray-600 text-gray-300 px-8 py-3 rounded-full font-bold text-lg hover:border-brand-blue hover:text-white transition"
+            >
+              Ver Landing Web
             </a>
           </div>
         </div>
@@ -190,8 +307,8 @@
             TimeTracker Pro
           </h3>
           <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-            Automatización de asistencia, cálculo de nómina y gestión de turnos
-            sin fricción.
+            Cada minuto mal registrado cuesta dinero. Centralice asistencia,
+            turnos y permisos con datos auditables listos para nómina.
           </p>
         </div>
 
@@ -439,8 +556,9 @@
             Continental Inspect
           </h3>
           <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-            Aplicación móvil nativa para el control logístico en bodega, captura
-            de evidencia multimedia y trazabilidad de carga aérea.
+            En logística aérea, la evidencia es su seguro. Digitalice
+            inspecciones en piso con fotos, video y reportes PDF que respaldan
+            cada movimiento de carga.
           </p>
         </div>
 
@@ -577,6 +695,707 @@
       </div>
     </section>
 
+    <!-- SUITE 03: Landing Page Corporativa -->
+    <section
+      id="landing"
+      class="py-24 bg-brand-panel relative border-t border-brand"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-up">
+          <h2
+            class="text-brand-blue text-sm font-bold tracking-widest uppercase mb-2"
+          >
+            Suite 03
+          </h2>
+          <h3 class="text-3xl md:text-5xl font-bold text-white mb-4">
+            Landing Page · Continental Cargo
+          </h3>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Su operación interna puede ser de primer nivel; si su presencia en
+            internet no lo refleja, pierde oportunidades antes de la primera
+            llamada. Diseñamos una página corporativa clara, moderna y orientada
+            a convertir visitas en contactos comerciales.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-20 fade-up delay-100"
+        >
+          <div>
+            <h4 class="text-2xl font-bold text-white mb-4">
+              La cara digital de su negocio logístico
+            </h4>
+            <p class="text-gray-400 mb-6">
+              Aerolíneas, forwarders y clientes corporativos evalúan credibilidad
+              en segundos. Una landing profesional comunica servicios, cobertura,
+              estándares de calidad y canales de contacto sin fricción — las 24
+              horas, desde cualquier dispositivo.
+            </p>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-bullseye text-brand-blue mt-1 mr-3"></i>
+                <strong>Mensaje comercial claro:</strong> Propuesta de valor,
+                servicios de carga aérea y diferenciadores visibles desde el
+                primer scroll.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-palette text-brand-blue mt-1 mr-3"></i>
+                <strong>Identidad Continental:</strong> Paleta, tipografía y
+                tono alineados con su marca para transmitir solidez y
+                experiencia en el sector.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-mobile-alt text-brand-blue mt-1 mr-3"></i>
+                <strong>100% responsive:</strong> Experiencia impecable en
+                móvil, tablet y escritorio — donde sus decisores realmente
+                navegan.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-envelope-open-text text-brand-blue mt-1 mr-3"></i>
+                <strong>Captación de leads:</strong> Formularios y llamadas a la
+                acción que facilitan cotizaciones y seguimiento comercial.
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-search text-brand-blue mt-1 mr-3"></i>
+                <strong>Base SEO:</strong> Estructura y contenidos preparados
+                para que clientes potenciales encuentren a Continental Cargo en
+                búsquedas relevantes.
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-brand-dark rounded-2xl border border-gray-800 p-8 fade-up"
+          >
+            <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+              <i class="fas fa-layer-group text-brand-blue"></i>
+              Paquete propuesto: Ecosistema completo
+            </h4>
+            <p class="text-gray-400 text-sm mb-6">
+              No son proyectos aislados: la misma visión tecnológica que ordena su
+              bodega y su personal se extiende a cómo el mercado percibe a
+              Continental Cargo.
+            </p>
+            <div class="space-y-3 text-sm">
+              <div
+                class="flex justify-between items-center py-3 px-4 rounded-lg bg-brand-panel border border-gray-800"
+              >
+                <span class="text-gray-300">TimeTracker Pro (RRHH)</span>
+                <span class="text-brand-blue font-semibold">Operación</span>
+              </div>
+              <div
+                class="flex justify-between items-center py-3 px-4 rounded-lg bg-brand-panel border border-gray-800"
+              >
+                <span class="text-gray-300">Continental Inspect (Bodega)</span>
+                <span class="text-brand-blue font-semibold">Trazabilidad</span>
+              </div>
+              <div
+                class="flex justify-between items-center py-3 px-4 rounded-lg bg-brand-panel border border-brand"
+              >
+                <span class="text-white font-medium"
+                  >Landing Page Corporativa</span
+                >
+                <span class="text-brand-blue font-semibold">Marca</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 mt-6">
+              Paquete completo desde <span class="text-brand-blue font-semibold">$5,000 AUD</span>
+              o arranque desde <span class="text-brand-blue font-semibold">$2,000 AUD</span>
+              — ver sección Inversión.
+            </p>
+          </div>
+        </div>
+
+        <div class="fade-up delay-200 max-w-6xl mx-auto">
+          <h4 class="text-2xl font-bold text-white mb-3 text-center">
+            Vista previa del sitio
+          </h4>
+          <p class="text-gray-400 text-center mb-10 max-w-2xl mx-auto">
+            Sitio corporativo en inglés, pensado para el mercado australiano:
+            mensaje de autoridad, catálogo de servicios y formulario de
+            cotización en un solo recorrido.
+          </p>
+
+          <div class="space-y-8">
+            <article class="landing-frame mockup-shadow">
+              <div class="browser-chrome">
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span
+                  class="ml-3 text-xs text-gray-500 truncate flex-1 text-center"
+                  >continentalcargo.com — Inicio</span
+                >
+              </div>
+              <div class="landing-shot landing-shot--hero">
+                <img
+                  src="landing1.png"
+                  alt="Página de inicio de Continental Cargo con hero y métricas de operación"
+                />
+              </div>
+              <p class="landing-caption">
+                <strong>Inicio.</strong> Propuesta de valor, métricas de
+                capacidad y llamadas a la acción visibles de inmediato.
+              </p>
+            </article>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+              <article class="landing-frame mockup-shadow h-full">
+                <div class="browser-chrome">
+                  <span class="browser-dot"></span>
+                  <span class="browser-dot"></span>
+                  <span class="browser-dot"></span>
+                  <span class="ml-3 text-xs text-gray-500 truncate flex-1"
+                    >continentalcargo.com — Servicios</span
+                  >
+                </div>
+                <div class="landing-shot landing-shot--page flex-1">
+                  <img
+                    src="landing2.png"
+                    alt="Sección de servicios logísticos y operaciones de Continental Cargo"
+                  />
+                </div>
+                <p class="landing-caption">
+                  <strong>Servicios.</strong> Operaciones, logística portuaria y
+                  detalle de capacidades en bodega.
+                </p>
+              </article>
+
+              <article class="landing-frame mockup-shadow h-full">
+                <div class="browser-chrome">
+                  <span class="browser-dot"></span>
+                  <span class="browser-dot"></span>
+                  <span class="browser-dot"></span>
+                  <span class="ml-3 text-xs text-gray-500 truncate flex-1"
+                    >continentalcargo.com — Contacto</span
+                  >
+                </div>
+                <div class="landing-shot landing-shot--page flex-1">
+                  <img
+                    src="landing3.png"
+                    alt="Formulario de cotización y contacto en Continental Cargo"
+                  />
+                </div>
+                <p class="landing-caption">
+                  <strong>Contacto.</strong> Formulario de cotización para
+                  convertir visitas en oportunidades comerciales.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inversión: 3 opciones -->
+    <section
+      id="inversion"
+      class="py-24 bg-brand-dark relative border-t border-brand"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10 fade-up">
+          <h2
+            class="text-brand-blue text-sm font-bold tracking-widest uppercase mb-2"
+          >
+            Inversión
+          </h2>
+          <h3 class="text-3xl md:text-5xl font-bold text-white mb-4">
+            Ecosistema completo, condiciones exclusivas
+          </h3>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Las tres opciones incluyen el mismo alcance:
+            <strong class="text-white"
+              >TimeTracker Pro + Continental Inspect + Landing
+              corporativa</strong
+            >. La diferencia está en cómo prefiere financiar el proyecto.
+          </p>
+        </div>
+
+        <div
+          class="max-w-3xl mx-auto mb-10 rounded-2xl border border-emerald-500/35 bg-emerald-500/5 px-6 py-5 text-center fade-up"
+        >
+          <p class="text-emerald-300 text-sm font-bold uppercase tracking-wider mb-2">
+            <i class="fas fa-gift mr-1"></i> Prueba sin riesgo
+          </p>
+          <p class="text-white text-lg font-semibold mb-2">
+            7 días de acceso gratuito al ecosistema completo
+          </p>
+          <p class="text-gray-400 text-sm">
+            RRHH, inspección en bodega y herramientas web en un entorno real.
+            Sin costo de licencia esa semana. Al finalizar, usted elige la opción
+            de inversión que prefiera — o cancela sin obligación de pago.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-12 fade-up delay-100"
+        >
+          <!-- Opción 1 — Pago único -->
+          <article
+            class="pricing-card pricing-card--featured rounded-2xl border-2 p-8 flex flex-col relative"
+          >
+            <span
+              class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-blue text-brand-navy text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full"
+              >Mejor valor</span
+            >
+            <p
+              class="text-brand-blue text-sm font-bold uppercase tracking-wider mb-2 mt-2"
+            >
+              Opción 1
+            </p>
+            <h4 class="text-2xl font-bold text-white mb-2">Pago único</h4>
+            <p class="text-gray-400 text-sm mb-6">
+              Un solo desembollo y listo: sin licencias semanales ni sorpresas en
+              la factura.
+            </p>
+            <div class="mb-6">
+              <span class="text-4xl font-extrabold text-white">$5,000</span>
+              <span class="text-brand-blue font-semibold text-sm"> AUD</span>
+              <span class="text-gray-500 text-sm block mt-1"
+                >Inversión total · una sola vez</span
+              >
+            </div>
+            <ul class="space-y-3 text-sm text-gray-300 flex-1 mb-8">
+              <li class="flex items-start gap-2">
+                <i class="fas fa-gift text-emerald-400 mt-0.5"></i>
+                <strong>1 semana de prueba gratis</strong> antes de firmar
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                Ecosistema completo (RRHH, bodega y web)
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                Infraestructura en la nube (Firebase) dentro de límites de uso
+                razonable
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                <strong>10 horas</strong> de soporte técnico sin costo
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                <strong>15 horas</strong> para ajustes y cambios que usted
+                solicite
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                Sin cuota semanal de licencia
+              </li>
+            </ul>
+            <p class="text-xs text-gray-500 mb-4">
+              La opción más clara: un solo pago y el ecosistema queda en
+              producción sin cuotas recurrentes.
+            </p>
+            <a
+              href="#inversion"
+              class="block text-center bg-brand-blue text-brand-navy py-3 rounded-full font-bold hover:bg-white transition shadow-[0_0_20px_rgba(56,189,248,0.35)]"
+            >
+              Elegir pago único
+            </a>
+          </article>
+
+          <!-- Opción 2 — Arranque + licencia -->
+          <article
+            class="pricing-card rounded-2xl border border-gray-800 p-8 flex flex-col"
+          >
+            <p
+              class="text-brand-blue text-sm font-bold uppercase tracking-wider mb-2"
+            >
+              Opción 2
+            </p>
+            <h4 class="text-2xl font-bold text-white mb-2">Arranque flexible</h4>
+            <p class="text-gray-400 text-sm mb-6">
+              Menor desembolso inicial para cubrir el desarrollo; licencia
+              semanal para operación en la nube.
+            </p>
+            <div class="mb-6">
+              <span class="text-3xl font-extrabold text-white">$2,000</span>
+              <span class="text-brand-blue font-semibold text-sm"> AUD</span>
+              <span class="text-gray-500 text-sm block mt-1"
+                >Cuota inicial · gastos de desarrollo</span
+              >
+              <span class="text-2xl font-bold text-white block mt-4"
+                >+ $75</span
+              >
+              <span class="text-brand-blue font-semibold text-sm"> AUD</span>
+              <span class="text-gray-400 text-sm"> / semana · licencia de uso</span>
+              <span class="text-gray-500 text-xs block mt-1 line-through"
+                >Tarifa habitual: $100 AUD/semana</span
+              >
+            </div>
+            <ul class="space-y-3 text-sm text-gray-300 flex-1 mb-8">
+              <li class="flex items-start gap-2">
+                <i class="fas fa-gift text-emerald-400 mt-0.5"></i>
+                <strong>1 semana de prueba gratis</strong> antes de firmar
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                Mismo ecosistema completo que la Opción 1
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                Licencia incluye hosting, base de datos y almacenamiento
+                (Firebase)
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-cloud text-brand-blue mt-0.5"></i>
+                Uso dentro de los límites del plan gratuito de Firebase; si su
+                operación los supera, se factura el excedente real
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                <strong>6 horas</strong> de soporte técnico sin costo
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                <strong>10 horas</strong> para cambios y mejoras a su medida
+              </li>
+            </ul>
+            <p class="text-xs text-gray-500 mb-4">
+              Ideal si prefiere repartir la inversión: arranca con menos capital
+              y mantiene el sistema activo con una cuota predecible.
+            </p>
+            <a
+              href="#inversion"
+              class="block text-center border border-gray-600 text-gray-200 py-3 rounded-full font-semibold hover:border-brand-blue hover:text-white transition"
+            >
+              Elegir arranque flexible
+            </a>
+          </article>
+
+          <!-- Opción 3 — Dos cuotas -->
+          <article
+            class="pricing-card rounded-2xl border border-gray-800 p-8 flex flex-col"
+          >
+            <p
+              class="text-brand-blue text-sm font-bold uppercase tracking-wider mb-2"
+            >
+              Opción 3
+            </p>
+            <h4 class="text-2xl font-bold text-white mb-2">Dos cuotas mensuales</h4>
+            <p class="text-gray-400 text-sm mb-6">
+              El mismo precio final de $5,000 AUD, repartido en el primer y el
+              segundo mes de implementación.
+            </p>
+            <div class="mb-6">
+              <span class="text-3xl font-extrabold text-white">$2,500</span>
+              <span class="text-brand-blue font-semibold text-sm"> AUD</span>
+              <span class="text-gray-500 text-sm block mt-1"
+                >Primer mes</span
+              >
+              <span class="text-3xl font-bold text-white block mt-3"
+                >+ $2,500</span
+              >
+              <span class="text-brand-blue font-semibold text-sm"> AUD</span>
+              <span class="text-gray-500 text-sm block mt-1"
+                >Segundo mes</span
+              >
+              <span class="text-emerald-400 text-xs font-semibold mt-2 block"
+                >Total: $5,000 AUD en 2 meses · sin licencia semanal</span
+              >
+            </div>
+            <ul class="space-y-3 text-sm text-gray-300 flex-1 mb-8">
+              <li class="flex items-start gap-2">
+                <i class="fas fa-gift text-emerald-400 mt-0.5"></i>
+                <strong>1 semana de prueba gratis</strong> antes de firmar
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                Ecosistema completo (RRHH, bodega y web)
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                Infraestructura Firebase incluida en el primer año de operación
+                normal
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                <strong>8 horas</strong> de soporte técnico sin costo
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                <strong>12 horas</strong> para cambios que usted defina
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-brand-blue mt-0.5"></i>
+                Sin cuota semanal — equilibrio entre flujo de caja y costo total
+              </li>
+            </ul>
+            <p class="text-xs text-gray-500 mb-4">
+              Punto medio: divide la inversión en dos pagos mensuales sin cuota
+              semanal de licencia.
+            </p>
+            <a
+              href="#inversion"
+              class="block text-center border border-gray-600 text-gray-200 py-3 rounded-full font-semibold hover:border-brand-blue hover:text-white transition"
+            >
+              Elegir cuotas mensuales
+            </a>
+          </article>
+        </div>
+
+        <!-- Límites Firebase -->
+        <div
+          id="limites"
+          class="max-w-5xl mx-auto mb-12 fade-up delay-200"
+        >
+          <div class="text-center mb-8">
+            <h4 class="text-2xl font-bold text-white mb-2">
+              Límites de uso en la nube (Firebase)
+            </h4>
+            <p class="text-gray-400 text-sm max-w-2xl mx-auto">
+              La licencia semanal y el mantenimiento incluido en su plan operan
+              sobre la infraestructura de Google Firebase. Mientras el uso se
+              mantenga dentro de estas cuotas gratuitas, no hay costo extra de
+              plataforma. Si Continental Cargo las supera, se le avisa y solo
+              paga el consumo adicional real (sin recargo oculto).
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div
+              class="rounded-xl border border-gray-800 bg-brand-panel p-6"
+            >
+              <h5
+                class="text-white font-bold mb-4 flex items-center gap-2 text-sm uppercase tracking-wide"
+              >
+                <i class="fas fa-database text-brand-blue"></i>
+                Cloud Firestore (datos operativos)
+              </h5>
+              <ul class="space-y-2 text-sm text-gray-300">
+                <li class="flex justify-between gap-4 border-b border-gray-800 pb-2">
+                  <span>Datos almacenados</span>
+                  <span class="text-brand-blue font-semibold shrink-0"
+                    >1 GiB total</span
+                  >
+                </li>
+                <li class="flex justify-between gap-4 border-b border-gray-800 pb-2">
+                  <span>Lecturas de documentos</span>
+                  <span class="text-brand-blue font-semibold shrink-0"
+                    >50,000 / día</span
+                  >
+                </li>
+                <li class="flex justify-between gap-4 border-b border-gray-800 pb-2">
+                  <span>Escrituras de documentos</span>
+                  <span class="text-brand-blue font-semibold shrink-0"
+                    >20,000 / día</span
+                  >
+                </li>
+                <li class="flex justify-between gap-4 border-b border-gray-800 pb-2">
+                  <span>Borrados de documentos</span>
+                  <span class="text-brand-blue font-semibold shrink-0"
+                    >20,000 / día</span
+                  >
+                </li>
+                <li class="flex justify-between gap-4">
+                  <span>Tráfico de salida (egress)</span>
+                  <span class="text-brand-blue font-semibold shrink-0"
+                    >10 GiB / mes</span
+                  >
+                </li>
+              </ul>
+              <p class="text-xs text-gray-500 mt-4">
+                Registros de asistencia, inspecciones, usuarios y metadatos de
+                carga. Las cuotas diarias se reinician a medianoche (hora del
+                Pacífico).
+              </p>
+            </div>
+
+            <div
+              class="rounded-xl border border-gray-800 bg-brand-panel p-6"
+            >
+              <h5
+                class="text-white font-bold mb-4 flex items-center gap-2 text-sm uppercase tracking-wide"
+              >
+                <i class="fas fa-photo-video text-brand-blue"></i>
+                Cloud Storage (fotos y videos)
+              </h5>
+              <ul class="space-y-2 text-sm text-gray-300">
+                <li class="flex justify-between gap-4 border-b border-gray-800 pb-2">
+                  <span>Almacenamiento</span>
+                  <span class="text-brand-blue font-semibold shrink-0"
+                    >5 GB</span
+                  >
+                </li>
+                <li class="flex justify-between gap-4">
+                  <span>Descarga de archivos</span>
+                  <span class="text-brand-blue font-semibold shrink-0"
+                    >100 GB / mes</span
+                  >
+                </li>
+              </ul>
+              <p class="text-xs text-gray-500 mt-4">
+                Evidencia de inspección (fotos HD, clips). El plan Blaze de
+                Firebase permite usar el bucket con tarifa
+                <em class="text-gray-400">Always Free</em> en regiones
+                elegibles; el excedente se factura según tarifas de Google Cloud.
+              </p>
+            </div>
+
+            <div
+              class="rounded-xl border border-gray-800 bg-brand-panel p-6"
+            >
+              <h5
+                class="text-white font-bold mb-4 flex items-center gap-2 text-sm uppercase tracking-wide"
+              >
+                <i class="fas fa-globe text-brand-blue"></i>
+                Hosting (landing y portales web)
+              </h5>
+              <ul class="space-y-2 text-sm text-gray-300">
+                <li class="flex justify-between gap-4 border-b border-gray-800 pb-2">
+                  <span>Almacenamiento del sitio</span>
+                  <span class="text-brand-blue font-semibold shrink-0"
+                    >10 GB</span
+                  >
+                </li>
+                <li class="flex justify-between gap-4">
+                  <span>Transferencia de datos</span>
+                  <span class="text-brand-blue font-semibold shrink-0"
+                    >360 MB / día</span
+                  >
+                </li>
+              </ul>
+              <p class="text-xs text-gray-500 mt-4">
+                Sitio corporativo, panel de empleados y herramientas web
+                administrativas.
+              </p>
+            </div>
+
+            <div
+              class="rounded-xl border border-gray-800 bg-brand-panel p-6"
+            >
+              <h5
+                class="text-white font-bold mb-4 flex items-center gap-2 text-sm uppercase tracking-wide"
+              >
+                <i class="fas fa-user-shield text-brand-blue"></i>
+                Otros servicios incluidos
+              </h5>
+              <ul class="space-y-2 text-sm text-gray-300">
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-brand-blue mt-0.5 shrink-0"></i>
+                  <span
+                    ><strong class="text-gray-200">Authentication:</strong>
+                    usuarios ilimitados en plan gratuito (inicio de sesión
+                    seguro).</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-brand-blue mt-0.5 shrink-0"></i>
+                  <span
+                    ><strong class="text-gray-200">Functions / APIs:</strong>
+                    cuotas gratuitas por invocaciones y tiempo de cómputo para
+                    lógica ligera del sistema.</span
+                  >
+                </li>
+              </ul>
+              <p class="text-xs text-gray-500 mt-4">
+                Referencia oficial:
+                <a
+                  href="https://firebase.google.com/pricing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-brand-blue hover:underline"
+                  >firebase.google.com/pricing</a
+                >
+                (plan Spark / capas gratuitas Blaze).
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="rounded-xl border border-amber-500/30 bg-amber-500/5 p-6 text-sm text-gray-300"
+          >
+            <h5 class="text-amber-200 font-bold mb-2 flex items-center gap-2">
+              <i class="fas fa-exclamation-triangle"></i>
+              ¿Qué pasa si se superan los límites?
+            </h5>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <strong class="text-gray-300">Uso normal de bodega y RRHH:</strong>
+                para el volumen típico de Continental Cargo, las cuotas gratuitas
+                suelen ser suficientes (cientos de inspecciones y marcajes al mes
+                sin problema).
+              </li>
+              <li>
+                <strong class="text-gray-300">Crecimiento o mucho video HD:</strong>
+                si el almacenamiento de fotos/videos supera ~5 GB o el tráfico
+                mensual de descargas supera 100 GB, Google cobra el excedente; ese
+                costo se traslada a usted con reporte previo.
+              </li>
+              <li>
+                <strong class="text-gray-300">Picos de operación:</strong> días con
+                más de 20.000 escrituras o 50.000 lecturas en base de datos (pico
+                extremo) activan facturación por operación adicional.
+              </li>
+              <li>
+                <strong class="text-gray-300">La licencia de $75 AUD/semana</strong>
+                cubre supervisión, optimización y mantenimiento para mantener el
+                consumo bajo control; el excedente de Google, si ocurre, se
+                factura aparte y de forma transparente.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-10 fade-up delay-200"
+        >
+          <div
+            class="rounded-xl border border-gray-800 bg-brand-panel p-6 text-sm text-gray-400"
+          >
+            <h5 class="text-white font-bold mb-3 flex items-center gap-2">
+              <i class="fas fa-server text-brand-blue"></i>
+              ¿Qué cubre la licencia semanal (Opción 2)?
+            </h5>
+            <p>
+              Servidores, base de datos, almacenamiento de fotos y videos, copias
+              de seguridad y monitoreo básico. Operamos sobre
+              <strong class="text-gray-300">Firebase</strong> aprovechando su
+              capa gratuita descrita arriba. Si supera esos límites, se le informa
+              antes y solo paga el consumo adicional real de Google.
+              <a href="#limites" class="text-brand-blue hover:underline"
+                >Ver tabla de límites</a
+              >.
+            </p>
+          </div>
+          <div
+            class="rounded-xl border border-gray-800 bg-brand-panel p-6 text-sm text-gray-400"
+          >
+            <h5 class="text-white font-bold mb-3 flex items-center gap-2">
+              <i class="fas fa-clock text-brand-blue"></i>
+              Soporte y cambios incluidos
+            </h5>
+            <p>
+              Las horas de <strong class="text-gray-300">soporte</strong> cubren
+              incidencias, capacitación y dudas de uso. Las horas de
+              <strong class="text-gray-300">cambios</strong> son para lo que
+              usted quiera ajustar (campos, reportes, textos, flujos menores).
+              Horas adicionales se cotizan por separado a tarifa acordada.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="max-w-4xl mx-auto rounded-xl border border-gray-800 bg-brand-panel/80 p-6 text-center text-sm text-gray-400 fade-up delay-200"
+        >
+          <p class="mb-2">
+            <i class="fas fa-info-circle text-brand-blue mr-1"></i>
+            Precios en <strong class="text-gray-300">AUD</strong>. No incluyen
+            hardware (tablets o móviles en bodega). GST según aplique en
+            Australia.
+          </p>
+          <p>
+            Incluye <strong class="text-gray-300">1 semana de prueba gratuita</strong>
+            en las tres opciones. Tras la prueba, se formaliza por escrito la
+            opción elegida. Quedamos a disposición de
+            <strong class="text-gray-300">Carlos Saicedo</strong> para activar el
+            periodo de prueba o cerrar la inversión.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <footer
       class="bg-brand-panel py-16 border-t border-brand text-center relative overflow-hidden"
     >
@@ -590,13 +1409,45 @@
           class="h-32 w-auto mx-auto mb-6 bg-white p-4 rounded-lg shadow-md"
         />
         <h2 class="text-3xl font-bold text-white mb-4">
-          ¿Listos para revolucionar la operativa?
+          El siguiente paso es suyo
         </h2>
-        <p class="text-gray-400 mb-8">
-          Automatización, seguridad y control logístico en la palma de su mano.
+        <p class="text-gray-400 mb-6 max-w-2xl mx-auto">
+          Comience con <strong class="text-white">7 días de prueba gratis</strong>
+          en su operación real. Después, seleccione la opción de inversión y
+          agendemos el cierre con alcance y fecha de arranque definitivo.
         </p>
-        <p class="text-brand-blue font-semibold">
-          Atención: Carlos Saicedo, CEO
+        <a
+          href="#inversion"
+          class="inline-block mb-8 bg-brand-blue text-brand-navy px-8 py-3 rounded-full font-bold hover:bg-white transition"
+        >
+          Ver planes y precios
+        </a>
+        <ul
+          class="text-left max-w-md mx-auto text-gray-300 text-sm space-y-2 mb-8"
+        >
+          <li class="flex items-center gap-2">
+            <i class="fas fa-check-circle text-brand-blue"></i>
+            1 semana de prueba gratuita del ecosistema completo
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fas fa-check-circle text-brand-blue"></i>
+            Demo en vivo de los módulos incluidos en su plan
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fas fa-check-circle text-brand-blue"></i>
+            Contrato con entregables y hitos de pago claros
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fas fa-check-circle text-brand-blue"></i>
+            Tres formas de pago: único, flexible o en dos cuotas mensuales
+          </li>
+        </ul>
+        <p class="text-brand-blue font-semibold text-lg">
+          Carlos Saicedo, CEO — Continental Cargo
+        </p>
+        <p class="text-gray-500 text-sm mt-2">
+          Quedamos a disposición para agendar una reunión de cierre y definir
+          fechas de arranque.
         </p>
       </div>
     </footer>
