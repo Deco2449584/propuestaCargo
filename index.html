@@ -95,6 +95,99 @@
         border: 4px solid #1e293b;
       }
 
+      /* Galerías móviles — Suite Inspect */
+      .inspect-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+        width: 100%;
+      }
+
+      .inspect-gallery__shot {
+        display: block;
+        width: min(82vw, 280px);
+        max-width: 100%;
+        height: auto;
+        max-height: min(72vh, 520px);
+        object-fit: cover;
+        object-position: top center;
+        flex-shrink: 0;
+      }
+
+      .inspect-gallery__shot--pdf {
+        object-fit: contain;
+        background: #fff;
+        border-radius: 1rem;
+        max-height: min(65vh, 480px);
+      }
+
+      .inspect-gallery--scroll {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding: 0.25rem 0 1rem;
+        scrollbar-width: thin;
+      }
+
+      .inspect-gallery--scroll .inspect-gallery__shot {
+        scroll-snap-align: center;
+        width: min(72vw, 240px);
+      }
+
+      @media (min-width: 640px) {
+        .inspect-gallery:not(.inspect-gallery--scroll) {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1.5rem;
+        }
+
+        .inspect-gallery__shot {
+          width: min(42vw, 240px);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .inspect-gallery {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1.5rem;
+        }
+
+        .inspect-gallery--scroll {
+          flex-wrap: nowrap;
+          justify-content: center;
+          overflow-x: visible;
+          scroll-snap-type: none;
+          padding-bottom: 0;
+        }
+
+        .inspect-gallery__shot {
+          width: auto;
+          height: 500px;
+          max-height: 500px;
+        }
+
+        .inspect-gallery__shot--pdf {
+          width: auto;
+          max-width: 220px;
+          height: 500px;
+          max-height: 500px;
+        }
+
+        .inspect-gallery--scroll .inspect-gallery__shot {
+          width: auto;
+        }
+      }
+
       .browser-chrome {
         background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
         border-radius: 0.75rem 0.75rem 0 0;
@@ -559,20 +652,22 @@
         </div>
 
         <!-- Bloque 1: Dashboard Cargo y OCR -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-          <div class="fade-up flex justify-center gap-6">
-            <img
-              src="dashboardcargo.jpeg"
-              alt="Dashboard Operador"
-              class="h-[500px] object-cover mobile-screen mockup-shadow"
-            />
-            <img
-              src="cameraOcr.jpeg"
-              alt="Escáner OCR"
-              class="h-[500px] object-cover mobile-screen mockup-shadow"
-            />
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
+          <div class="fade-up w-full min-w-0">
+            <div class="inspect-gallery">
+              <img
+                src="dashboardcargo.jpeg"
+                alt="Dashboard Operador"
+                class="inspect-gallery__shot mobile-screen mockup-shadow"
+              />
+              <img
+                src="cameraOcr.jpeg"
+                alt="Escáner OCR"
+                class="inspect-gallery__shot mobile-screen mockup-shadow"
+              />
+            </div>
           </div>
-          <div class="fade-up delay-100">
+          <div class="fade-up delay-100 min-w-0">
             <h4 class="text-2xl font-bold text-white mb-4">
               Panel Operativo & Escáner Inteligente (OCR)
             </h4>
@@ -596,8 +691,8 @@
         </div>
 
         <!-- Bloque 2: Formulario y Evidencia Visual -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-          <div class="order-2 lg:order-1 fade-up delay-100">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
+          <div class="order-2 lg:order-1 fade-up delay-100 min-w-0">
             <h4 class="text-2xl font-bold text-white mb-4">
               Inspección Digital y Evidencia Multimedia
             </h4>
@@ -624,43 +719,47 @@
               </li>
             </ul>
           </div>
-          <div class="order-1 lg:order-2 fade-up">
-            <div class="flex gap-6 justify-center">
+          <div class="order-1 lg:order-2 fade-up w-full min-w-0">
+            <div class="inspect-gallery">
               <img
                 src="newcargo.jpeg"
                 alt="Formulario de Carga"
-                class="h-[500px] object-cover mobile-screen mockup-shadow"
+                class="inspect-gallery__shot mobile-screen mockup-shadow"
               />
               <img
                 src="video.jpeg"
                 alt="Evidencia en Video"
-                class="h-[500px] object-cover mobile-screen mockup-shadow"
+                class="inspect-gallery__shot mobile-screen mockup-shadow"
               />
             </div>
           </div>
         </div>
 
         <!-- Bloque 3: Reportes, Detalles y Admin -->
-        <div class="grid grid-cols-3 lg:grid-cols-2 gap-10 items-end">
-          <div class="fade-up flex justify-end gap-6">
-            <!-- Ajustamos el tamaño del PDF que suele ser más largo -->
-            <img
-              src="searchcargo.jpeg"
-              alt="busqueda Avanzada"
-              class="h-[500px] object-cover mobile-screen mockup-shadow"
-            />
-            <img
-              src="pdf.jpeg"
-              alt="Reporte PDF"
-              class="h-[500px] object-contain rounded-xl mockup-shadow border border-gray-700 bg-white"
-            />
-            <img
-              src="adminpanel.jpeg"
-              alt="Panel Admin Exportación"
-              class="h-[500px] object-cover mobile-screen mockup-shadow"
-            />
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div class="fade-up w-full min-w-0 overflow-hidden lg:order-1">
+            <div class="inspect-gallery inspect-gallery--scroll">
+              <img
+                src="searchcargo.jpeg"
+                alt="busqueda Avanzada"
+                class="inspect-gallery__shot mobile-screen mockup-shadow"
+              />
+              <img
+                src="pdf.jpeg"
+                alt="Reporte PDF"
+                class="inspect-gallery__shot inspect-gallery__shot--pdf mockup-shadow border border-gray-700"
+              />
+              <img
+                src="adminpanel.jpeg"
+                alt="Panel Admin Exportación"
+                class="inspect-gallery__shot mobile-screen mockup-shadow"
+              />
+            </div>
+            <p class="text-center text-xs text-gray-500 mt-2 lg:hidden">
+              Desliza para ver las capturas →
+            </p>
           </div>
-          <div class="fade-up delay-100">
+          <div class="fade-up delay-100 min-w-0 lg:order-2">
             <h4 class="text-2xl font-bold text-white mb-4">
               Reportes Automatizados y Exportación Central
             </h4>
