@@ -276,10 +276,110 @@
         box-shadow: 0 0 40px rgba(56, 189, 248, 0.12);
       }
 
-      @media (min-width: 1024px) {
-        .pricing-card--featured {
-          transform: translateY(-0.5rem);
+      .pricing-carousel {
+        position: relative;
+        max-width: 28rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .pricing-carousel__viewport {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 0.75rem 0 0.25rem;
+      }
+
+      .pricing-carousel__viewport::-webkit-scrollbar {
+        display: none;
+      }
+
+      .pricing-carousel__track {
+        display: flex;
+        gap: 0;
+      }
+
+      .pricing-carousel__slide {
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        min-width: 0;
+        height: auto;
+      }
+
+      .pricing-carousel__arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 10;
+        transform: translateY(-50%);
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 9999px;
+        border: 1px solid rgba(56, 189, 248, 0.35);
+        background: rgba(15, 23, 42, 0.95);
+        color: #38bdf8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+      }
+
+      .pricing-carousel__arrow:hover {
+        background: #38bdf8;
+        color: #0f172a;
+        border-color: #38bdf8;
+      }
+
+      .pricing-carousel__arrow--prev {
+        left: -0.75rem;
+      }
+
+      .pricing-carousel__arrow--next {
+        right: -0.75rem;
+      }
+
+      @media (min-width: 640px) {
+        .pricing-carousel__arrow--prev {
+          left: -3rem;
         }
+
+        .pricing-carousel__arrow--next {
+          right: -3rem;
+        }
+      }
+
+      .pricing-carousel__dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1.25rem;
+      }
+
+      .pricing-carousel__dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 9999px;
+        background: #334155;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: width 0.2s, background 0.2s;
+      }
+
+      .pricing-carousel__dot.is-active {
+        width: 1.5rem;
+        background: #38bdf8;
+      }
+
+      .pricing-carousel__hint {
+        text-align: center;
+        font-size: 0.75rem;
+        color: #64748b;
+        margin-top: 0.75rem;
       }
     </style>
   </head>
@@ -1022,12 +1122,29 @@
           </p>
         </div>
 
-        <div
-          class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-12 fade-up delay-100"
-        >
+        <div class="pricing-carousel mb-12 fade-up delay-100">
+          <button
+            type="button"
+            class="pricing-carousel__arrow pricing-carousel__arrow--prev"
+            aria-label="Opción anterior"
+            data-pricing-prev
+          >
+            <i class="fas fa-chevron-left text-sm"></i>
+          </button>
+          <button
+            type="button"
+            class="pricing-carousel__arrow pricing-carousel__arrow--next"
+            aria-label="Siguiente opción"
+            data-pricing-next
+          >
+            <i class="fas fa-chevron-right text-sm"></i>
+          </button>
+
+          <div class="pricing-carousel__viewport" data-pricing-viewport>
+            <div class="pricing-carousel__track">
           <!-- Opción 1 — Pago único -->
           <article
-            class="pricing-card pricing-card--featured rounded-2xl border-2 p-8 flex flex-col relative"
+            class="pricing-carousel__slide pricing-card pricing-card--featured rounded-2xl border-2 p-8 flex flex-col relative h-full"
           >
             <span
               class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-blue text-brand-navy text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full"
@@ -1092,7 +1209,7 @@
 
           <!-- Opción 2 — Arranque + licencia -->
           <article
-            class="pricing-card rounded-2xl border border-gray-800 p-8 flex flex-col"
+            class="pricing-carousel__slide pricing-card rounded-2xl border border-gray-800 p-8 flex flex-col h-full"
           >
             <p
               class="text-brand-blue text-sm font-bold uppercase tracking-wider mb-2"
@@ -1161,7 +1278,7 @@
 
           <!-- Opción 3 — Dos cuotas -->
           <article
-            class="pricing-card rounded-2xl border border-gray-800 p-8 flex flex-col"
+            class="pricing-carousel__slide pricing-card rounded-2xl border border-gray-800 p-8 flex flex-col h-full"
           >
             <p
               class="text-brand-blue text-sm font-bold uppercase tracking-wider mb-2"
@@ -1228,6 +1345,35 @@
               Elegir cuotas mensuales
             </a>
           </article>
+            </div>
+          </div>
+
+          <div class="pricing-carousel__dots" role="tablist" aria-label="Opciones de inversión">
+            <button
+              type="button"
+              class="pricing-carousel__dot is-active"
+              aria-label="Opción 1: Pago único"
+              aria-selected="true"
+              data-pricing-dot="0"
+            ></button>
+            <button
+              type="button"
+              class="pricing-carousel__dot"
+              aria-label="Opción 2: Arranque flexible"
+              aria-selected="false"
+              data-pricing-dot="1"
+            ></button>
+            <button
+              type="button"
+              class="pricing-carousel__dot"
+              aria-label="Opción 3: Dos cuotas mensuales"
+              aria-selected="false"
+              data-pricing-dot="2"
+            ></button>
+          </div>
+          <p class="pricing-carousel__hint">
+            Desliza o use las flechas para comparar las 3 opciones
+          </p>
         </div>
 
         <!-- Límites Firebase -->
@@ -1710,6 +1856,77 @@
             });
           });
         });
+
+        // Carrusel de precios
+        const pricingViewport = document.querySelector(
+          "[data-pricing-viewport]"
+        );
+        if (pricingViewport) {
+          const slides = pricingViewport.querySelectorAll(
+            ".pricing-carousel__slide"
+          );
+          const dots = document.querySelectorAll("[data-pricing-dot]");
+          const prevBtn = document.querySelector("[data-pricing-prev]");
+          const nextBtn = document.querySelector("[data-pricing-next]");
+          let activeIndex = 0;
+
+          function setActiveDot(index) {
+            activeIndex = index;
+            dots.forEach((dot, i) => {
+              const isActive = i === index;
+              dot.classList.toggle("is-active", isActive);
+              dot.setAttribute("aria-selected", isActive ? "true" : "false");
+            });
+          }
+
+          function goToSlide(index) {
+            const target = Math.max(0, Math.min(index, slides.length - 1));
+            slides[target].scrollIntoView({
+              behavior: "smooth",
+              inline: "center",
+              block: "nearest",
+            });
+            setActiveDot(target);
+          }
+
+          function updateDotFromScroll() {
+            const viewportCenter =
+              pricingViewport.scrollLeft + pricingViewport.clientWidth / 2;
+            let closest = 0;
+            let minDistance = Infinity;
+
+            slides.forEach((slide, i) => {
+              const slideCenter =
+                slide.offsetLeft + slide.offsetWidth / 2;
+              const distance = Math.abs(viewportCenter - slideCenter);
+              if (distance < minDistance) {
+                minDistance = distance;
+                closest = i;
+              }
+            });
+
+            if (closest !== activeIndex) {
+              setActiveDot(closest);
+            }
+          }
+
+          let scrollTimeout;
+          pricingViewport.addEventListener("scroll", () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(updateDotFromScroll, 80);
+          });
+
+          prevBtn?.addEventListener("click", () => goToSlide(activeIndex - 1));
+          nextBtn?.addEventListener("click", () => goToSlide(activeIndex + 1));
+
+          dots.forEach((dot) => {
+            dot.addEventListener("click", () => {
+              goToSlide(Number(dot.dataset.pricingDot));
+            });
+          });
+
+          setActiveDot(0);
+        }
       });
     </script>
   </body>
